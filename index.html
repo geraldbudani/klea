@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/tengbao/vanta/master/dist/vanta.fog.min.js"></script>
+
+
+
+</head>
+<body>
+    <div id="background"></div>
+
+    <header>
+        <div class="header-container">
+            <img src="profile.jpg" alt="Klea Uruci" class="header-image">
+            <h1>Klea Uruçi</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        
+        <p>I am Klea Uruci, a second-year Architecture student at Epoka University in Tirana. I have a strong passion for sustainable design and a keen eye for detail, which I integrate into my coursework. My academic journey at Epoka has provided me with a solid foundation in architectural design, structural engineering, environmental sustainability, and urban planning. I actively engage in design studios, where I explore creative approaches to spatial design and construction techniques. I am committed to creating spaces that balance functionality with aesthetic appeal, and I aspire to contribute to the future of architecture by addressing contemporary challenges through innovative and impactful design solutions. Currently, I am seeking an internship opportunity to apply my skills and further develop my knowledge in a practical, real-world setting.</p>
+        <a href="Gerald-Budani(resume).pdf" download>
+            <button class="cv-button">Download CV</button>
+        </a>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Project Name</h3>
+            <p>Project description goes here.</p>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: your.email@example.com</p>
+    </section>
+    <script>
+        window.onload = function () {
+            VANTA.FOG({
+                el: "#background",
+                mouseControls: false,  // Disable cursor interaction
+                touchControls: false,  // Disable touch interaction
+                gyroControls: false,   // Disable gyroscope movement
+                minHeight: window.innerHeight,
+                minWidth: window.innerWidth,
+                highlightColor: 0x3B3A0A, // First color
+                midtoneColor: 0x6B4A2C,   // Second color
+                lowlightColor: 0x000000,   // Background color (black)
+                baseColor: 0x000000,       // Base color (black)
+                speed: 1.0,
+                zoom: 1.0
+            });
+        };
+    </script>
+    
+    
+    
+    
+    <footer>
+        <p>&copy; 2025 Your Name</p>
+    </footer>
+</body>
+
+</html>
