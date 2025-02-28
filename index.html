@@ -7,26 +7,35 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.rawgit.com/tengbao/vanta/master/dist/vanta.fog.min.js"></script>
-
-
-
 </head>
+
+
 <body>
     <div id="background"></div>
 
     <header>
         <div class="header-container">
-            <img src="profile.jpg" alt="Klea Uruci" class="header-image">
+            <img src="profile.jpg" alt="Klea Uruçi" class="header-image" id="profilePic"> <!-- Add id="profilePic" -->
             <h1>Klea Uruçi</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="smooth-scroll">About</a></li>
+                <li><a href="#projects" class="smooth-scroll">Projects</a></li>
+                <li><a href="#contact" class="smooth-scroll">Contact</a></li>
             </ul>
         </nav>
     </header>
+    
+
+    <!-- Fullscreen Pop-up Image -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closePopup">&times;</span>
+            <img src="profile.jpg" id="popupImage">
+        </div>
+    </div>
+
     
     <section id="about">
         <h2>About Me</h2>
@@ -49,7 +58,7 @@
         <h2>Contact</h2>
         <p>Email: your.email@example.com</p>
     </section>
-    <script>
+   <script>
         window.onload = function () {
             VANTA.FOG({
                 el: "#background",
@@ -66,9 +75,56 @@
                 zoom: 1.0
             });
         };
+
+
+        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        window.scrollTo({
+            top: targetElement.offsetTop - 50,
+            behavior: 'smooth'
+        });
+    });
+});
+
     </script>
-    
-    
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let profilePic = document.getElementById("profilePic");
+    let popup = document.getElementById("popup");
+    let closePopup = document.getElementById("closePopup");
+
+    if (popup) {
+        popup.style.display = "none"; // Ensure it's hidden on page load
+    }
+
+    if (profilePic && popup && closePopup) {
+        // Open the pop-up when clicking the profile picture
+        profilePic.addEventListener("click", function () {
+            popup.style.display = "flex";
+        });
+
+        // Close the pop-up when clicking the close button
+        closePopup.addEventListener("click", function () {
+            popup.style.display = "none";
+        });
+
+        // Close the pop-up when clicking outside the image
+        popup.addEventListener("click", function (event) {
+            if (event.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+    }
+});
+;
+
+</script>
+
+
     
     
     <footer>
